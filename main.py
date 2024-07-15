@@ -11,7 +11,7 @@ def login_to_instagram(username, password):
 
 
     options = webdriver.ChromeOptions()
-    #options.add_argument("--headless")  
+    options.add_argument("--headless")  
     service = Service(ChromeDriverManager().install())
 
     driver = None
@@ -46,7 +46,7 @@ def login_to_instagram(username, password):
         print(driver.current_url)
     
         if "accounts/login" in driver.current_url:
-            print("Login failed: Invalid username or password")
+            print(f"Login failed: Invalid username or password passwd : {password}")
             
         else:
             print(f"\n=====================\nLogin successful!\nuname: {username}\npasswd : {password}\n=====================\n")
