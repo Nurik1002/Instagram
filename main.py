@@ -50,7 +50,7 @@ def login_to_instagram(username, password):
             
         else:
             print(f"\n=====================\nLogin successful!\nuname: {username}\npasswd : {password}\n=====================\n")
-
+            return True
     except TimeoutException as e:
         print(f"Login failed: Timeout ({e})")
     except NoSuchElementException as e:
@@ -58,13 +58,14 @@ def login_to_instagram(username, password):
     finally:
         if driver:
             driver.quit()
+    return False
 
 
 
 
 
+if __name__=="__main__":
+    username = "one.1nsta"
+    password = "XxXnurikinsta"
 
-username = "one.1nsta"
-password = "XxXnurikinsta"
-
-login_to_instagram(username, password)
+    login_to_instagram(username, password)
